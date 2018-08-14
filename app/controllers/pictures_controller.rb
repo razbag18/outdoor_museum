@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @google_address_auto = google_auto_complete
   end
 
   def create
@@ -11,16 +12,12 @@ class PicturesController < ApplicationController
     result = gmaps.geocode( "#{picture_params[:street_name]}#{params[:picture][:street_name]}" )
     @picture.latitude = result[0][:geometry][:location][:lat]
     @picture.longitude = result[0][:geometry][:location][:lng]
-
-    binding.pry
     if @picture.save
       redirect_to '/'
     else
       render :new
     end
   end
-
-
 
   def picture_params
     params.require(:picture).permit(:img_url,:street_name, :artist, :title)
