@@ -1,5 +1,9 @@
 class SearchController < ApplicationController
 
+  def gmaps
+    gmaps = GoogleMapsService::Client.new(key: ENV['GOOGLE_MAPS_KEY'])
+  end
+
   def index
 
     # user search for street / or location
@@ -7,7 +11,7 @@ class SearchController < ApplicationController
 
     # map uluru is generated
     @google = HTTParty.get("https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&callback=initMap")
-    byebug
+    binding.pry
     @uluru = gmaps.geocode(params[:search])
 
   end
