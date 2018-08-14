@@ -7,8 +7,7 @@ class UsersController < ApplicationController
     user = User.new
     user.email = params[:email]
     user.password = params[:password]
-    if 
-      user.save
+    if user.save
       redirect_to '/'
     else
       render :new
