@@ -1,1 +1,21 @@
-homepage here
+<h1>Start looking for cool stuff near you</h1>
+
+  </div>
+    <form id="search-picture" class="search" action="/search">
+      <input type="text" name="search" id="street" value="" title="Search" class="text">
+      <input type="submit" name="page" value="  " disable_with="Submiting..." class="search-submit">
+    </form>
+  </div>
+  
+  <div>
+    <h2>Be cool too</h2>
+    <button onclick="location.href='/users/new'" type="button">Sign up</button>
+  </div>
+
+<script>
+  function initMap() {
+    var input = document.getElementById('street');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+  }
+  <%= raw @google_address_auto %>
+</script>
