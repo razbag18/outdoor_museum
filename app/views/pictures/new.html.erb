@@ -1,0 +1,16 @@
+<h1>upload picture</h1>
+<img src="<%= "http://via.placeholder.com/200x200"%>"/>
+
+<%= form_tag(pictures_path, :method => "post") do %>
+  <%= label_tag(:q, "Image url") %>
+  <%= text_field_tag 'picture[img_url]' %>
+  <%= label_tag(:q, "Street name") %>
+  <%= text_field_tag 'picture[street_name]' %>
+  <%= label_tag(:q, "City name") %>
+  <%= text_field_tag 'picture[city_name]' %>
+  <%= label_tag(:q, "Artist name") %>
+  <%= text_field_tag 'picture[artist]' %>
+  <%= label_tag(:q, "Title") %>
+  <%= text_field_tag 'picture[title]' %>
+  <%= submit_tag("send") %>
+<% end %>
