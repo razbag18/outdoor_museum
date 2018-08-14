@@ -1,11 +1,9 @@
 class SearchController < ApplicationController
 
   def index
-
-    # select all from database where radius === radius of the search
-    @pic = Picture.all
-    @rating = @pic.users_pictures.rating
-
+    @pic = Picture.first
+    pic_votes = @pic.users_pictures
+    @ratings = pic_votes.pluck('rating').reduce(:+)/pic_votes.length
     @google_map_loader = google_script
     location = gmaps.geocode(params[:search])
     @lat = location[0][:geometry][:location][:lat]
