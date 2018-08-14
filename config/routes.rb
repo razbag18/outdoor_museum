@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'homepage#index'
   resource :sessions, only: [:new, :create, :destroy]
   resources :users_pictures
   resources :comments
