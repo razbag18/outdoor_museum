@@ -8,7 +8,7 @@
 
 
 
-Picture.create(street_name: 'AC/DC Lane', title: 'unknown', artist: 'unknown', img_url: 'http://www.abc.net.au/news/image/9519028-3x2-700x467.jpg', user_id: 1, latitude: -37.8153599, longitude: 144.9710359)
+Picture.create(street_name: 'AC/DC Lane', title: 'unknown', artist: 'unknown', img_url: 'http://www.abc.net.au/news/image/9519028-3x2-700x467.jpg', user_id: User.first.id, latitude: -37.8153599, longitude: 144.9710359)
 
 Picture.create(street_name: 'AC/DC Lane', title: 'unknown', artist: 'unknown', img_url: 'http://www.rogergould.com.au/blog/wp-content/uploads/2012/10/acdc_lane_563.jpg', user_id: 1, latitude: -37.8158403, longitude: 144.9707973)
 
