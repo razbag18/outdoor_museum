@@ -10,6 +10,27 @@
   </head>
 
   <body>
+    <section class="menu">
+      <button class="accordian">
+      Hamburger</button>
+      <div class="panel">
+      <% if !logged_in? %>
+        <a href="#">Login</a>
+        <a href="#">Signup</a>
+      <% end %>
+      <% if logged_in? %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <button>Logout</button>
+        </form>
+      <% end %>
+      </div>
+      
+      </section>
+
+
+
     <%= yield %>
   </body>
 </html>
