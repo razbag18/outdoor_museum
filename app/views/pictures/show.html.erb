@@ -1,0 +1,25 @@
+
+<img src="<%= @picture.img_url %>">
+<h1><%= @picture.street_name %></h1>
+
+<p>Rating: <%= @ratings %> stars</p> 
+<p>Title: <%= @picture.title %></p>
+<p>Artist: <%= @picture.artist %></p>
+
+
+<% if logged_in? %>
+  <form action="/comments" method="post">
+    <input type= "hidden" name="picture_id" value="<%= @picture.id %>">
+    <p><label for="">Comments</label></p>
+    <textarea class="comment-textarea" name="content"></textarea>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button>Post</button>
+  </form>
+<% end %>
+
+<% @comments.each do |comment| %> 
+  <div>
+    <p><%= comment.user.email %>:</p>
+    <p> <%= comment.content %></p>
+  </div>
+<% end %>

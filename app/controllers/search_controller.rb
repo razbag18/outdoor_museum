@@ -12,10 +12,7 @@ class SearchController < ApplicationController
       (picture.latitude - @lat )**2 + (picture.longitude - @lng)**2 < radius**2
     }
   end
+
+  
   
 end
-
-
-
-# render markers again everytime user moves the map
-# 
