@@ -19,29 +19,55 @@
   </form>
 </div>
 
+<div class="favourite">
+  <form action="">
+    <label for="favourite-checkbox">Favourite</label>
+    <input id="favourite-checkbox" type="checkbox" name="favourite">
+  </form>
+</div>
+
+
 <script>
   $('.stars form').on('click', 'input', function(event) {
   	event.preventDefault()
     var ratingValue = event.target.value
-    sendRequest(ratingValue)
+    sendRequest(
+      '/submit_rating',
+      {
+        rating: ratingValue,
+        picture_id: <%= @picture.id %>
+      },
+      function(data) {
+        $(`.stars input[value=${data.rating}]`).prop('checked', true)
+        $('.average-rating').text(data.average_rating)
+      }
+    )
   })
   
-  function sendRequest(ratingValue) {
+  function sendRequest(url, data, doneHandler) {
 	  $.ajax({
       headers: {
         "X-CSRF-Token": $('meta[name=csrf-token]').attr('content')
       },
-      url: '/submit_rating',
+      url: url,
       method: 'post',
-      data: {
-        rating: ratingValue,
-        picture_id: <%= @picture.id %>
-      }
-    }).done(function(data) {
-      $(`.stars input[value=${data.rating}]`).prop('checked', true)
-      $('.average-rating').text(data.average_rating)
-    })
+      data: data
+    }).done(doneHandler)
   }
+
+
+  $('.favourite form').on('click', 'input', function(event) {
+  	event.preventDefault()
+    sendRequest(
+      '/toggle_favourites',
+      {
+        picture_id: <%= @picture.id %>
+      },
+      function(data) {
+        $('#favourite-checkbox').prop('checked', data.checked)
+      }
+    )
+  })
 </script>
 
 <p>Title: <%= @picture.title %></p>
