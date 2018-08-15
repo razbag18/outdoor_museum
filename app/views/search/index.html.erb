@@ -14,8 +14,7 @@
 <script> 
 
 function initMap() {
-  
-  
+
   markers = []
   infoWindows = []
   contents = []
@@ -60,15 +59,18 @@ function initMap() {
   <% end %>
 
     var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png'});
+            {imagePath: '/img'});
 
 }
-
 
 </script>
 
 <script>
-
+  function updatePictures(){
+    google.maps.addListener('center_changed', ()=> {
+      fetch()
+    }) 
+  }
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"> </script>
 
