@@ -26,6 +26,12 @@
   </form>
 </div>
 
+<div class="visited">
+  <form action="">
+    <label for="visited-checkbox">Visited</label>
+    <input id="visited-checkbox" type="checkbox" name="visited">
+  </form>
+</div>
 
 <script>
   $('.stars form').on('click', 'input', function(event) {
@@ -65,6 +71,19 @@
       },
       function(data) {
         $('#favourite-checkbox').prop('checked', data.checked)
+      }
+    )
+  })
+
+  $('.visited form').on('click', 'input', function(event) {
+  	event.preventDefault()
+    sendRequest(
+      '/toggle_visited',
+      {
+        picture_id: <%= @picture.id %>
+      },
+      function(data) {
+        $('#visited-checkbox').prop('checked', data.checked)
       }
     )
   })
