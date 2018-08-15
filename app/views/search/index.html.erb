@@ -11,28 +11,61 @@
 
 <div id="map"></div>
 
-<script>
-     
+<script> 
 function initMap() {
-  // The location of Uluru
-  var uluru = {lat: <%= @lat %>, lng: <%= @lng %>};
-  // The map, centered at Uluru
+  
+  var uluru = {lat: <%= @lat %>, lng: <%= @lng %> }
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 17, center: uluru});
-  // The marker, positioned at Uluru
+      document.getElementById('map'), 
+      {zoom: 17, center: uluru})
+  
+  markers = []
+  infoWindows = []
+  contents = []
 
-  <% @pictures.each do |picture| %>
-  var marker = new google.maps.Marker({position: {lat: <%= picture.latitude %>, lng: <%= picture.longitude %>}, map: map});
+  <% @pictures.each_with_index do |picture, idx| %>
+  
+  var position = {lat: <%= picture.latitude %>, lng: <%= picture.longitude %> }
+  
+  contents.push(
+    `
+    <div id='content'>
+      <img src='<%= picture.img_url %>'>
+      <h3 class="info-window__title"><%= picture.title %></h3>
+      <h4 class="info-window__rating"></h4>
+    </div>
+  `)
+
+  infoWindows.push(
+      new google.maps.InfoWindow({
+      content: contents[<%= idx %>]
+    })
+  )
+
+  markers.push(
+    new google.maps.Marker({
+    position: position,
+    map: map,
+    title: '<%= picture.title %>'
+    })
+  )
+
+  markers[<%= idx %>].addListener('click', function() {  
+    infoWindows[<%= idx %>].open(map, markers[<%= idx %>])
+
+  })
 
   <% end %>
-}
- 
 
+
+
+}
 
 </script>
 
-<!-- <script src="popup.js"></script> -->
+
 
 <script> 
   <%= raw @google_map_loader %>
+
 </script>
