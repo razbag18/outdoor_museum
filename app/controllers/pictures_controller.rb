@@ -19,6 +19,18 @@ class PicturesController < ApplicationController
     end
   end
 
+  def show
+    @picture = Picture.find(params[:id])
+    pic_votes = @picture.users_pictures
+    total_points = pic_votes.pluck('rating').reduce(:+)
+    if total_points 
+      @ratings = total_points/pic_votes.length
+    else
+      @ratings = 0
+    end
+    @comments = @picture.comments
+  end
+
   def picture_params
     params.require(:picture).permit(:img_url,:street_name, :artist, :title)
   end

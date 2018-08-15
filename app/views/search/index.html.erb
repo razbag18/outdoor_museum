@@ -10,11 +10,13 @@
 <h3>My Google Maps Demo</h3>
 
 <div id="map"></div>
-<div id="content">
-  <img src="<%= @pic.img_url %>"   style='max-width: 80px' class="popup__img">
-  <h1><%= @pic.street_name %></h1>
-  <p><%= @ratings %></p>
-</div>
+  <div id="content">
+    <img src="<%= @pic.img_url %>"   style='max-width: 80px' class="popup__img">
+    <h1><%= @pic.street_name %></h1>
+    <p>Rating: <%= @ratings %> Stars</p>
+    <a href=>See full info</a>
+  
+  </div>
 
 <script>
   var map, popup, Popup;
