@@ -34,6 +34,22 @@ class Api::UsersPicturesController < ApplicationController
     }
   end
 
+  def toggle_visited
+    user_pic = UsersPicture.find_by(user_id: session[:user_id], picture_id: params[:picture_id])
+
+    if !user_pic
+      user_pic = UsersPicture.new
+      user_pic.user_id = session[:user_id]
+      user_pic.picture_id = params[:picture_id]
+    end
+    user_pic.visited = !user_pic.visited
+    user_pic.save
+
+    render json: {
+      checked: user_pic.visited
+    }
+  end
+
   private
   def get_avg_rating
     UsersPicture.where(picture_id: params[:picture_id]).average(:rating).to_i
