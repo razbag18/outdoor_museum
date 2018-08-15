@@ -59,7 +59,22 @@ function initMap() {
   <% end %>
 
     var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: '/img'});
+            {imagePath: '/img'})
+
+    map.addListener('dragend', ()=> {
+
+
+      fetch(`/api/search?lat=${map.center.lat()}&lng=${map.center.lng()}`, {
+        method: 'GET',
+      })
+      .then(res => res.json())
+      .then(
+        response => {
+          console.log(response)
+        }
+      )
+    }) 
+  
 
 }
 
@@ -67,9 +82,7 @@ function initMap() {
 
 <script>
   function updatePictures(){
-    google.maps.addListener('center_changed', ()=> {
-      fetch()
-    }) 
+    
   }
 </script>
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"> </script>
