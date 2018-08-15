@@ -10,32 +10,28 @@
 <h3>My Google Maps Demo</h3>
 
 <div id="map"></div>
-<div id="content">
-  <img src="<%= @pic.img_url %>"   style='max-width: 80px' class="popup__img">
-  <h1><%= @pic.street_name %></h1>
-  <p><%= @ratings %></p>
-</div>
 
 <script>
-  var map, popup, Popup;
+     
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: <%= @lat %>, lng: <%= @lng %>};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 17, center: uluru});
+  // The marker, positioned at Uluru
 
-  /** Initializes the map and the custom popup. */
-  function initMap() {
-    definePopupClass();
+  <% @pictures.each do |picture| %>
+  var marker = new google.maps.Marker({position: {lat: <%= picture.latitude %>, lng: <%= picture.longitude %>}, map: map});
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: <%= @lat %>, lng: <%= @lng %>},
-      zoom: 10,
-    });
-    
-    popup = new Popup(
-        new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
-        document.getElementById('content'));
-    popup.setMap(map);
-  }
+  <% end %>
+}
+ 
+
+
 </script>
 
-<script src="popup.js"></script>
+<!-- <script src="popup.js"></script> -->
 
 <script> 
   <%= raw @google_map_loader %>
