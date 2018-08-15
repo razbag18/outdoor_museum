@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   get '/home/userdashboard', to: 'homepage#user_dashboard'
 
+
+  
+  post '/submit_rating', to: 'api/users_pictures#update_rating'
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
