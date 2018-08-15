@@ -10,35 +10,61 @@
 <h3>My Google Maps Demo</h3>
 
 <div id="map"></div>
-  <div id="content">
-    <img src="<%= @pic.img_url %>"   style='max-width: 80px' class="popup__img">
-    <h1><%= @pic.street_name %></h1>
-    <p>Rating: <%= @ratings %> Stars</p>
-    <a href=>See full info</a>
+
+<script> 
+function initMap() {
   
-  </div>
+  var uluru = {lat: <%= @lat %>, lng: <%= @lng %> }
+  var map = new google.maps.Map(
+      document.getElementById('map'), 
+      {zoom: 17, center: uluru})
+  
+  markers = []
+  infoWindows = []
+  contents = []
 
-<script>
-  var map, popup, Popup;
+  <% @pictures.each_with_index do |picture, idx| %>
+  
+  var position = {lat: <%= picture.latitude %>, lng: <%= picture.longitude %> }
+  
+  contents.push(
+    `
+    <div id='content'>
+      <img src='<%= picture.img_url %>'>
+      <h3 class="info-window__title"><%= picture.title %></h3>
+      <h4 class="info-window__rating"></h4>
+    </div>
+  `)
 
-  /** Initializes the map and the custom popup. */
-  function initMap() {
-    definePopupClass();
+  infoWindows.push(
+      new google.maps.InfoWindow({
+      content: contents[<%= idx %>]
+    })
+  )
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: <%= @lat %>, lng: <%= @lng %>},
-      zoom: 10,
-    });
-    
-    popup = new Popup(
-        new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
-        document.getElementById('content'));
-    popup.setMap(map);
-  }
+  markers.push(
+    new google.maps.Marker({
+    position: position,
+    map: map,
+    title: '<%= picture.title %>'
+    })
+  )
+
+  markers[<%= idx %>].addListener('click', function() {  
+    infoWindows[<%= idx %>].open(map, markers[<%= idx %>])
+
+  })
+
+  <% end %>
+
+
+
+}
 </script>
 
-<script src="popup.js"></script>
+
 
 <script> 
   <%= raw @google_map_loader %>
+
 </script>
