@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @picture_image = Picture.all.pluck('img_url').sample
     @google_address_auto = google_auto_complete
   end
 
