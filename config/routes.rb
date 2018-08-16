@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users
   resources :search, only: [:index]
 
-  get '/home/userdashboard', to: 'homepage#user_dashboard'
 
   get '/update_pictures', to: 'api/pictures#update_pictures'
   

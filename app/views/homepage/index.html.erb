@@ -11,6 +11,17 @@
     <h2>Be cool too</h2>
     <button onclick="location.href='/users/new'" type="button">Sign up</button>
   </div>
+<% if logged_in? %>
+  <h1>User uploaded Pictures</h1>
+  <% @user_uploaded_pictures.each do |uploaded_pic| %>
+    <p><%= uploaded_pic.title%> <%= uploaded_pic.street_name%></p>
+  <%end%>
+
+  <h1>User favourited Pictures</h1>
+  <% @user_favourited_pictures.each do |favourited_pic| %>
+    <p><%= favourited_pic.picture.title%> <%= favourited_pic.picture.street_name%></p>
+  <%end%>
+<%end%>
 
 <script>
   function initMap() {
