@@ -19,6 +19,7 @@
 
 <% if logged_in? %>
   <div class="user_dashboard">
+  <%if @user_uploaded_pictures.length>0%>
     <div class="user_uploaded_pics">
       <h3>Uploaded Pictures</h3>
       <div class="uploaded_images">
@@ -26,7 +27,8 @@
           <a href='/pictures/<%= uploaded_pic.id %>'><div class="gallery_image" style="background-image: url('<%= uploaded_pic.img_url %>')"></div>
         <%end%>
       </div>
-    
+    <%end%>
+    <%if @user_favourited_pictures.length>0%>
     <div class="user_uploaded_pics">
       <h3>Favourited Pictures</h3>
       <div class="uploaded_images">
@@ -35,6 +37,7 @@
       <%end%>
       </div>
     </div>
+    <%end%>
 
     <div class="upload_new">
       <button class="btn_upload" onclick="location.href='/pictures/new'" type="button">Upload More</button>
