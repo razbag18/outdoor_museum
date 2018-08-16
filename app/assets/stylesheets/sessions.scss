@@ -1,0 +1,78 @@
+// Place all the styles related to the session controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.login-heading {
+  text-align: center;
+  color: #666666;
+}
+
+.login {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  text-align: left;
+}
+
+.email, .password {
+  height: 41px;
+  border-radius: 8px;
+  border: solid 1px #dce2ee;
+}
+
+.login-btn {
+  width: 143px;
+  height: 51px;
+  border-radius: 25px;
+  background-color: #3b48ee;
+  box-shadow: 0 3px 6px 0 rgba(59, 72, 238, 0.3);
+  color: white;
+  font-size: 16px;
+}
+
+.image{
+  display: none;
+}
+
+
+
+@media (min-width: 37.5em) {
+  .container {
+    display: flex;
+  }
+  
+  .login-form{
+    height: 50vh;
+    width: 50vw;
+  }
+  
+  .image{
+    height: 50vh;
+    width: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .email, .password {
+    height: 41px;
+    border-radius: 8px;
+    border: solid 1px #dce2ee;
+  }
+  
+  .login {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+  }
+
+}
+

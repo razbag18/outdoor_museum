@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
-
+    @picture = Picture.all.pluck('img_url').sample
   end
   
   def create
