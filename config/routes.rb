@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/submit_rating', to: 'api/users_pictures#update_rating'
   post '/toggle_favourites', to: 'api/users_pictures#toggle_favourites'
   post '/toggle_visited', to: 'api/users_pictures#toggle_visited'
+  post '/new_comment', to: 'api/comments#new_comment'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

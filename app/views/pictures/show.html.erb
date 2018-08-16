@@ -33,6 +33,28 @@
   </form>
 </div>
 
+<p>Title: <%= @picture.title %></p>
+<p>Artist: <%= @picture.artist %></p>
+
+<% if logged_in? %>
+  <div class="comments">
+    <form action="">
+      <input type= "hidden" name="picture_id" value="<%= @picture.id %>">
+      <%# do I need this hidden input anymore?? %>
+      <p><label for="">Comments</label></p>
+
+      <textarea class="comment-textarea" name="content"></textarea>
+      <button class='comment-button'>Post</button>
+    </form>
+  </div>
+<% end %>
+<div class ="comments-list">
+  <% @comments.each do |comment| %> 
+    <p><%= comment.user.email %>:</p>
+
+  <% end %>
+</div>
+
 <script>
   $('.stars form').on('click', 'input', function(event) {
   	event.preventDefault()
@@ -87,25 +109,24 @@
       }
     )
   })
+
+  $('.comment-button').on('click', function(event){
+    event.preventDefault()
+    sendRequest(
+      '/new_comment',
+      {
+        content: $('.comment-textarea').val(),
+        picture_id: <%= @picture.id %>
+      },
+      function(data) {
+        var $paraElem = $("<p>")
+        $paraElem.text(data.content)
+        $('.comments-list').append($paraElem)
+
+        //create new paragraph
+        //put new comment in paragraph text content
+        //append div
+      }
+    )
+  })
 </script>
-
-<p>Title: <%= @picture.title %></p>
-<p>Artist: <%= @picture.artist %></p>
-
-
-<% if logged_in? %>
-  <form action="/comments" method="post">
-    <input type= "hidden" name="picture_id" value="<%= @picture.id %>">
-    <p><label for="">Comments</label></p>
-    <textarea class="comment-textarea" name="content"></textarea>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <button>Post</button>
-  </form>
-<% end %>
-
-<% @comments.each do |comment| %> 
-  <div>
-    <p><%= comment.user.email %>:</p>
-    <p> <%= comment.content %></p>
-  </div>
-<% end %>
