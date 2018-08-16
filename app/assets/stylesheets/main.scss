@@ -109,7 +109,16 @@ footer {
   justify-content: space-between;
 }
 
-@media (min-width: 32.5em) {
+// @media (min-width: 300px) {
+//   .menu {
+//     background-color: white;
+//     width: 100%;
+//     margin: 0 auto;
+//   }
+// }
+
+
+@media (min-width: 55.5em) {
   
   body {
     margin: 0 auto;

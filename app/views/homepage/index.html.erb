@@ -33,12 +33,18 @@
       <h2>Explore <span>Melbourne</span></h2>
       <div class="explore_images">
         <%@pictures.each do |pic|%>
-          <a href='/pictures/<%= pic.id %>'><%= image_tag "#{pic.img_url}", size: "430x290" %>
+          <a href='/pictures/<%= pic.id %>'><div class="gallery_image" style="background-image: url('<%= pic.img_url %>')"></div>
         <%end%>
       </div>
     </div>
 
 <%end%>
+
+<div class="end">
+  
+  <h3>Start Exploring now!</h3>
+</div>
+
 
 <script>
   function initMap() {

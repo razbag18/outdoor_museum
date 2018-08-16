@@ -3,13 +3,17 @@ $main-color: #3B48EE;
 .image_container{
   background-position: center;
   background-size:cover;
+  height: 90vh
 }
 .home_title{
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  padding: 0 20% 20% 20%;
   margin: 0 auto;
-  padding: 100px 230px;
   background-image: linear-gradient(0deg, #000000 0%, rgba(0,0,0,0.50) 100%);
-
-
   h1{ 
   font-family: Raleway;
   font-size: 32px;
@@ -31,7 +35,6 @@ $main-color: #3B48EE;
     letter-spacing: normal;
     text-align: center;
     color: #ffffff;
-    color: var(--white);
   }
 }
 
@@ -46,7 +49,6 @@ $main-color: #3B48EE;
     height: 50px;
     border-radius: 6px;
     background-color: #ffffff;
-    background-color: var(--white);
     border: solid 1px #dce2ee;
   }
 
@@ -78,7 +80,8 @@ div.explore{
     letter-spacing: normal;
     color: #485465;
     color: var(--slate);
-    text-align:center;
+    text-align:left;
+    margin: 70px auto 30px auto;
   }
   span{
     font-family: Raleway;
@@ -93,7 +96,16 @@ div.explore{
     color: var(--slate);
   }
   .explore_images{
-    margin-left: 60px;
+    display: flex;
+    overflow-y: scroll;
+    width: 100%;
+    .gallery_image{
+      height: 300px;
+      width: 450px;
+      border-radius: 10px;
+      margin-left: 10px;
+      box-shadow: 0 4px 21px -5px rgba(97,97,97,0.23);
+    }
   }
 }
 
@@ -103,8 +115,16 @@ div.explore_image {
   }
 }
 
-@media (min-width: 32.5em) {
+div.end{
+  padding: 2em 0;
+  text-align: center;
+  color: $main-color;
+  font-size: 34px;
+}
+
+@media (min-width: 55.5em) {
   .home_title {
+    padding: 130px 230px 170px 230px;
     h1 {
       font-size: 60px;
     }
@@ -113,9 +133,15 @@ div.explore_image {
   div.explore {
     h2 {
       font-size: 60px;
+          width: 940px;
+
     }
     span {
       font-size: 24px;
     }
+  }
+
+  .image_container{
+    height: auto;
   }
 }
