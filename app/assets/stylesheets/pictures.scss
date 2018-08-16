@@ -9,7 +9,7 @@ $main-color: #3b48ee;
 }
 
 div.stars {
-  width: 270px;
+  width: 400px;
   display: inline-block;
 }
 
@@ -137,4 +137,38 @@ div.upload_background_pic{
   flex-wrap: wrap;
   justify-content: space-evenly;
   
+}
+
+div.favourites {
+  width: 400px;
+  display: inline-block;
+}
+
+input.checkbox-1.favourite-checkbox { display: none; }
+
+label.favourite-checkbox {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.favourite-checkbox:checked ~ label.favourite-checkbox:before {
+  content: '\002764	';
+  color:red;
+  transition: all .25s;
+}
+
+input.checkbox-1:checked ~ label.favourite-checkbox:before {
+  color: red;
+
+}
+
+label.favourite:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.favourite-checkbox:before {
+  content: '\002764';
+  
+  font-family: FontAwesome;
 }
