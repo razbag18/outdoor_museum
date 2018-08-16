@@ -82,6 +82,7 @@ div.explore{
     color: var(--slate);
     text-align:left;
     margin: 70px auto 30px auto;
+    padding-left: 20px;
   }
   span{
     font-family: Raleway;
@@ -120,6 +121,10 @@ div.end{
   text-align: center;
   color: $main-color;
   font-size: 34px;
+}
+
+#search-picture {
+  margin: 0;
 }
 
 @media (min-width: 55.5em) {
