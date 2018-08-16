@@ -27,8 +27,8 @@ a {
 }
 
 .logo {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 
 .fa-bars {
@@ -63,6 +63,10 @@ h1 {
   padding: 0.7em 0;
 }
 
+.panel-desktop {
+  display: none;
+}
+
 .logout::hover {
   font-size: 32px;
   color: $sec-color;
@@ -71,7 +75,7 @@ h1 {
 
 .hide {
   position: absolute;
-  top: -11em;
+  top: -130%;
   transition: $transition;
 }
 
@@ -92,4 +96,41 @@ h1 {
 
 .fa-times {
   align-self: flex-end;
+}
+
+footer {  
+  color: white;
+  display: flex;
+  width: 100%;
+  background-color: $sec-color;
+  padding: 0.8em 1.3em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-device-width: 32.5em) {
+  
+  .panel-desktop {
+    display: block;
+    padding: 0.7em 0;
+    display: flex;
+  }
+  
+  .panel-desktop h1 {
+    font-size: 1em;
+  }
+
+  .panel-desktop a {
+    margin-left: 2em;
+    color: $main-color;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .menu {
+    background-color: white;
+  }
+
 }

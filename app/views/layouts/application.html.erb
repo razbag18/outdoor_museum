@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   </head>
@@ -15,7 +16,21 @@
   <body>
     <section class="menu">
       <%= image_tag "om_logo.png", :class => 'logo' %>
-      <i class="fas fa-bars fa-lg"></i>
+      <div class="panel-desktop">
+      <% if !logged_in? %>
+        <h1><a href="/sessions/new">Login</a></h1>
+        <h1><a href="/users/new">Signup</a></h1>
+        <h1><a href="#">Search</a></h1>
+      <% end %>
+      <% if logged_in? %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <button class="logout">Logout</button>
+        </form>
+      <% end %>
+      </div>
+      <div class="icon"><i class="fas fa-bars fa-lg"></i></div>
     </section>
     <section class="hidden-menu hide">
       <div class="panel">
@@ -32,11 +47,17 @@
           <button class="logout">Logout</button>
         </form>
       <% end %>
+      </div>
     </section>
 
     <%= yield %>
 
-     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<footer>
+  <p>&#169 All Rights reserved to Team ArtSnobs</p>
+  <%= image_tag "om_logo.png", :class => 'logo' %>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
   var bars = document.querySelector('.fa-bars')
   var times = document.querySelector('.fa-times')
