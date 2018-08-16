@@ -127,6 +127,20 @@ div.end{
   margin: 0;
 }
 
+.floats {
+  position: absolute;
+  top: 30%;
+  left: -30%;
+  height: 40%;
+}
+
+.floats-2 {
+  position: absolute;
+  top: 30%;
+  right: -30%;
+  height: 40%;
+}
+
 @media (min-width: 55.5em) {
   .home_title {
     padding: 130px 230px 170px 230px;
@@ -149,4 +163,18 @@ div.end{
   .image_container{
     height: auto;
   }
+  .floats {
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  height: 40%;
+}
+  
+  .floats-2 {
+  position: absolute;
+  top: 30%;
+  right: 0%;
+  height: 40%;
+}
+
 }

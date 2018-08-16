@@ -78,7 +78,7 @@
         picture_id: <%= @picture.id %>
       },
       function(data) {
-        $(`.stars input[value=${data.rating}]`).prop('checked', true)
+        $('.stars input[value=' + data.rating +']').prop('checked', true)
         $('.average-rating').text(data.average_rating)
       }
     )
