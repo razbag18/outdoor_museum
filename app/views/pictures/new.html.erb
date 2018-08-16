@@ -1,30 +1,29 @@
-<h1>upload picture</h1>
-<img src="<%= "http://via.placeholder.com/200x200"%>"/>
-
-<div class="upload_new_pic">
-<%= form_tag(pictures_path, :method => "post",:class => 'new_picture_form') do %>
-  <%= label_tag(:q, "Image url") %>
-  <br/>
-  <%= text_field_tag 'picture[img_url]' %>
-  <br/>
-  <%= label_tag(:q, "Street name") %>
-  <br/>
-  <%= text_field_tag 'picture[street_name]' %>
-   <br/>
-  <%= label_tag(:q, "City name") %>
-  <br/>
-  <%= text_field_tag 'picture[city_name]' %>
-   <br/>
-  <%= label_tag(:q, "Artist name") %>
-  <br/>
-  <%= text_field_tag 'picture[artist]' %>
-   <br/>
-  <%= label_tag(:q, "Title") %>
-  <br/>
-  <%= text_field_tag 'picture[title]' %>
-  <br/>
-  <%= submit_tag("send", :id=>"submit_new_pic") %>
-<% end %>
+<div class="container">
+ <div class="upload_new_pic">
+  <h1>upload picture</h1>
+    <%= form_tag(pictures_path, :method => "post",:class => 'new_picture_form') do %>
+      <%= label_tag(:q, "Image url") %>
+      <br/>
+      <%= text_field_tag 'picture[img_url]' %>
+      <br/>
+      <%= label_tag(:q, "Street name") %>
+      <br/>
+      <%= text_field_tag 'picture[street_name]' %>
+      <br/>
+      <%= label_tag(:q, "Artist name") %>
+      <br/>
+      <%= text_field_tag 'picture[artist]' %>
+      <br/>
+      <%= label_tag(:q, "Title") %>
+      <br/>
+      <%= text_field_tag 'picture[title]' %>
+      <br/>
+      <%= submit_tag("send", :id=>"submit_new_pic") %>
+    <% end %>
+  </div>
+  <div class="upload_background_pic">
+    <img src="<%= "http://via.placeholder.com/600x600"%>"/>
+  </div>
 </div>
 
 <script>

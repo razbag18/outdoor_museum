@@ -1,6 +1,8 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$main-color: #3b48ee;
 * {
   box-sizing: border-box;
 }
@@ -40,17 +42,56 @@ label.star:before {
 }
 
 div.upload_new_pic{
-  width: 25%;
+  width: 350px;
+  float:left;
+}
+h1{
+  width: 401px;
+  height: 140px;
+  font-family: Raleway;
+  font-size: 60px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #485465;
+  color: var(--slate);
 }
 form {
-  line-height: 150%;
+  line-height: 200%;
+  font-size: 18px;
   input { 
-    border-radius: 5px;
-    border-width: 1px; 
-    width: 100%;
+    width: 263px;
+    height: 41px;
+    border-radius: 8px;
+    border: solid 1px #dce2ee;
     } 
-  input#submit_new_pic{
-    width: 30%;
-    float: right;
+  label{
+    width: 75px;
+    height: 19px;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #485465;
+    color: var(--slate);
   }
+  input#submit_new_pic{
+    width: 143px;
+    height: 51px;
+    border-radius: 25px;
+    background-color: #3b48ee;
+    box-shadow: 0 3px 6px 0 rgba(59, 72, 238, 0.3);
+    margin-top: 15px;
+    font-size: 16px;
+  }
+}
+
+div.upload_background_pic{
+  float:right;
+  margin-right:200px;
 }
