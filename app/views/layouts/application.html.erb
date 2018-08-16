@@ -55,24 +55,12 @@
 
     <%= yield %>
 
-<footer>
-  <p>&#169 All Rights reserved to Team ArtSnobs</p>
-  <%= image_tag "om_logo.png", :class => 'logo' %>
-</footer>
+    <footer>
+      <p>&#169 All Rights reserved to Team ArtSnobs</p>
+      <%= image_tag "om_logo.png", :class => 'logo' %>
+    </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script>
-  var bars = document.querySelector('.fa-bars')
-  var times = document.querySelector('.fa-times')
-  var menu = document.querySelector('.hidden-menu')
-  
-  bars.addEventListener('click', ()=>{
-    menu.className = "hidden-menu show"
-  })
-  times.addEventListener('click', ()=>{
-    menu.className = "hidden-menu hide"
-  })
-</script>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <%= javascript_include_tag "layout.js" %>
   </body>
 </html>
