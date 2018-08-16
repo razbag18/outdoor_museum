@@ -18,7 +18,7 @@
       <% if !logged_in? %>
         <a href="/sessions/new">Login</a>
         <a href="/users/new">Signup</a>
-        <a href="">Search</a>
+        <a href="#">Search</a>
       <% end %>
       <% if logged_in? %>
         <form action="/sessions" method="post">
@@ -27,8 +27,7 @@
           <button>Logout</button>
         </form>
       <% end %>
-      </div>
-      
+      <a href="/">Home</a>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
