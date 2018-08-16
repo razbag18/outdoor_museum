@@ -38,6 +38,7 @@ function updateMap(map){
               new google.maps.Marker({
               position: position,
               map: map,
+              icon: '/assets/marker.png',
               title: picture.title
               })
             )
@@ -49,7 +50,7 @@ function updateMap(map){
 
           })
           markerClusters.push(
-            new MarkerClusterer(map, markers,{imagePath: '/img'})
+            new MarkerClusterer(map, markers,{imagePath: '/assets/clusterers/m'})
           )
         }
       )
