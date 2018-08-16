@@ -32,7 +32,7 @@ function updateMap(map){
               new google.maps.Marker({
               position: position,
               map: map,
-              icon: '/assets/marker.png',
+              icon: 'https://raw.githubusercontent.com/micaelsbno/outdoor_museum/master/app/assets/images/marker.png',
               title: picture.title
               })
             )
@@ -44,7 +44,7 @@ function updateMap(map){
 
           })
           markerClusters.push(
-            new MarkerClusterer(map, markers,{imagePath: '/assets/clusterers/m'})
+            new MarkerClusterer(map, markers,{imagePath: 'https://raw.githubusercontent.com/micaelsbno/outdoor_museum/master/app/assets/images/clusterers/m'})
           )
         }
       )
