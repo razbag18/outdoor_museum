@@ -7,6 +7,7 @@ $main-color: #3b48ee;
 * {
   box-sizing: border-box;
 }
+
 div.stars {
   width: 270px;
   display: inline-block;
@@ -93,4 +94,47 @@ form.new_picture_form{
 div.upload_background_pic{
   float:right;
   margin-right:200px;
+}
+
+.comments-area{
+  text-align: left;
+
+}
+
+.comment-textarea{
+  height: 41px;
+  border-radius: 8px;
+  border: solid 1px #dce2ee;
+  width: 90vw;
+}
+
+.area-button{
+  display: flex;
+}
+
+.comment-button{
+  margin-left: 20px;
+  width: 143px;
+  height: 51px;
+  border-radius: 25px;
+  background-color: #3b48ee;
+  box-shadow: 0 3px 6px 0 rgba(59, 72, 238, 0.3);
+  color: white;
+  font-size: 16px;
+}
+
+.comments-list{
+  width: 90vw;
+}
+
+
+.show-container{
+  margin-left: 30px;
+}
+
+.icons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
 }

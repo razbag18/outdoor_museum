@@ -1,63 +1,70 @@
 
+  
 <img src="<%= @picture.img_url %>">
-<h1><%= @picture.street_name %></h1>
+<div class="show-container">
+  <h1><%= @picture.street_name %></h1>
 
-<p>Rating: <span class="average-rating"><%= @ratings %></span> stars</p>
-<% if logged_in? %>
-  <div class="stars">
-    <form action="">
-      <input class="star star-5" id="star-5" type="radio" name="star" value="5" />
-      <label class="star star-5" for="star-5"></label>
-      <input class="star star-4" id="star-4" type="radio" name="star" value="4" />
-      <label class="star star-4" for="star-4"></label>
-      <input class="star star-3" id="star-3" type="radio" name="star" value="3" />
-      <label class="star star-3" for="star-3"></label>
-      <input class="star star-2" id="star-2" type="radio" name="star" value="2" />
-      <label class="star star-2" for="star-2"></label>
-      <input class="star star-1" id="star-1" type="radio" name="star" value="1" />
-      <label class="star star-1" for="star-1"></label>
-    </form>
-  </div>
+  <p>Rating: <span class="average-rating"><%= @ratings %></span> stars</p>
+  <% if logged_in? %>
+    <div class="stars">
+      <form action="">
+        <input class="star star-5" id="star-5" type="radio" name="star" value="5" />
+        <label class="star star-5" for="star-5"></label>
+        <input class="star star-4" id="star-4" type="radio" name="star" value="4" />
+        <label class="star star-4" for="star-4"></label>
+        <input class="star star-3" id="star-3" type="radio" name="star" value="3" />
+        <label class="star star-3" for="star-3"></label>
+        <input class="star star-2" id="star-2" type="radio" name="star" value="2" />
+        <label class="star star-2" for="star-2"></label>
+        <input class="star star-1" id="star-1" type="radio" name="star" value="1" />
+        <label class="star star-1" for="star-1"></label>
+      </form>
+    </div>
 
+    <div class="icons">
+      <div class="favourite"> 
+        <form action="">
+          <label for="favourite-checkbox">Favourite</label>
+          <input id="favourite-checkbox" type="checkbox" name="favourite">
+        </form>
+      </div>
 
-<div class="favourite">
-  <form action="">
-    <label for="favourite-checkbox">Favourite</label>
-    <input id="favourite-checkbox" type="checkbox" name="favourite">
-  </form>
+      <div class="visited">
+        <form action="">
+          <label for="visited-checkbox">Visited</label>
+          <input id="visited-checkbox" type="checkbox" name="visited">
+        </form>
+      </div>
+    </div>
+    <% end %>
+    <p class="pic-title">Title: <%= @picture.title %></p>
+    <p class="pic-artist">Artist: <%= @picture.artist %></p>
+
+    <% if logged_in? %>
+    <div class="comments-area">
+        <div class="comments">
+          <form action="">
+            <input type= "hidden" name="picture_id" value="<%= @picture.id %>">
+            <%# do I need this hidden input anymore?? %>
+            <p><label class="comments"for="">Comments</label></p>
+            <div class="area-button">
+              <textarea class="comment-textarea" name="content" placeholder="add comment"></textarea>
+              <button class='comment-button'>Post</button>
+            </div>
+          </form>
+        </div>
+      <% end %>
+      <div class ="comments-list">
+        <% @comments.each do |comment| %> 
+          <p>
+            <%= comment.user.email %>:<br>
+            <%= comment.content %>
+          </p>
+        <% end %>
+      </div>
+    </div>
 </div>
 
-<div class="visited">
-  <form action="">
-    <label for="visited-checkbox">Visited</label>
-    <input id="visited-checkbox" type="checkbox" name="visited">
-  </form>
-</div>
-<% end %>
-<p>Title: <%= @picture.title %></p>
-<p>Artist: <%= @picture.artist %></p>
-
-<% if logged_in? %>
-  <div class="comments">
-    <form action="">
-      <input type= "hidden" name="picture_id" value="<%= @picture.id %>">
-      <%# do I need this hidden input anymore?? %>
-      <p><label for="">Comments</label></p>
-
-      <textarea class="comment-textarea" name="content"></textarea>
-      <button class='comment-button'>Post</button>
-    </form>
-  </div>
-<% end %>
-<div class ="comments-list">
-  <% @comments.each do |comment| %> 
-    <p>
-      <%= comment.user.email %>:<br>
-      <%= comment.content %>
-
-    </p>
-  <% end %>
-</div>
 
 <script>
   $('.stars form').on('click', 'input', function(event) {
