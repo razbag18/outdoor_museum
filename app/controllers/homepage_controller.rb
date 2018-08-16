@@ -1,6 +1,7 @@
 class HomepageController < ApplicationController
   def index
     @google_address_auto = google_auto_complete
+    @pictures = [Picture.first]
     if logged_in?
       show_user_uploaded_pics
       show_user_favourited_pics

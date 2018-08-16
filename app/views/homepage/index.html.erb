@@ -1,17 +1,16 @@
-<head>
-<%= stylesheet_link_tag 'home' %>
-</head>
-<div class="home_title">
-  <h1>Rediscover the city through the art of thousands of artists</h1>
-</div>
 
-<div class="home_search_form">
-  <form id="search-picture" class="search" action="/search">
-    <input type="text" placeholder='Street name, city...' name="search" id="street" value="" title="Search" class="text" required>
-    <button type="submit" class="search-submit">
-      <i class="fas fa-search"></i>
-    </button>
-  </form>
+<div class="image_container" style="background-image: url('<%= @pictures.first.img_url %>')">
+  <div class="home_title" >
+    <h1>Rediscover the city through the art of thousands of artists</h1>
+    <div class="home_search_form">
+      <form id="search-picture" class="search" action="/search">
+        <input type="text" placeholder='Street name, city...' name="search" id="street" value="" title="Search" class="text" required>
+        <button type="submit" class="search-submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
 
 
