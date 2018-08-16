@@ -20,10 +20,11 @@ function updateMap(map){
             
             contents.push(
               `
-              <div id='content'>
-                <img src='${picture.img_url}'>
-                <h3 class="info-window__title">${picture.title}</h3>
+              <div id='content' class="content">
+                <div style="background-image: url('${picture.img_url}')" class="map-image"></div>
+                <h3 class="info-window__title">${picture.street_name}</h3>
                 <h4 class="info-window__rating"></h4>
+                <a class="content-link" href="/pictures/${picture.id}">more info</a>
               </div>
             `)
 

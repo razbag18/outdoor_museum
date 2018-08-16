@@ -59,3 +59,18 @@
         max-height: 60px;
         box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.5);
       }
+
+      .map-image{
+        height: 100px;
+        width: 100%;
+        background-size: cover;
+      }
+
+      .content {
+        width: 200px;
+      }
+
+      .content-link {
+        color: blue;
+        text-decoration: underline;
+      }
