@@ -4,6 +4,8 @@ class HomepageController < ApplicationController
     if logged_in?
       show_user_uploaded_pics
       show_user_favourited_pics
+    else
+      show_random_pics
     end
   end
 
@@ -13,5 +15,9 @@ class HomepageController < ApplicationController
 
   def show_user_favourited_pics
     @user_favourited_pictures = UsersPicture.where(user_id: session[:user_id], isfav: true).joins(:picture).includes(:picture)
+  end
+
+  def show_random_pics
+    @pictures = Picture.all
   end
 end

@@ -1,33 +1,43 @@
-<h1>Start looking for cool stuff near you</h1>
+<head>
+<%= stylesheet_link_tag 'home' %>
+</head>
+<div class="home_title">
+  <h1>Rediscover the city through the art of thousands of artists</h1>
+  <h2>Type in a city, street or neighbourhood and start exploring</h2>
+</div>
 
-  </div>
-    <form id="search-picture" class="search" action="/search">
-      <input type="text" name="search" id="street" value="" title="Search" class="text">
-      <input type="submit" name="page" value="  " disable_with="Submiting..." class="search-submit">
-    </form>
-  </div>
-  <% if !logged_in? %>
-    <div>
-      <h2>Already have an account?</h2>
-      <button onclick="location.href='/sessions/new'" type="button">Login</button>
-    </div>
-    <div>
-    <h2>Or click here to <a href="/users/new">sign up</a></h2>
-    </div>
-  <% else %>
-   <div>
+<div class="home_search_form">
+  <form id="search-picture" class="search" action="/search">
+    <input type="text" name="search" id="street" value="" title="Search" class="text">
+    <button type="submit" class="search-submit">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+</div>
+
+
+<% if logged_in? %>
+  <div>
     <h2>Upload new art</h2>
     <button onclick="location.href='/pictures/new'" type="button">Go</button>
   </div>
-    <h1>User uploaded Pictures</h1>
-    <% @user_uploaded_pictures.each do |uploaded_pic| %>
+    <h2>User uploaded Pictures</h2>
+      <% @user_uploaded_pictures.each do |uploaded_pic| %>
       <p><%= uploaded_pic.title%> <%= uploaded_pic.street_name%></p>
     <%end%>
 
-    <h1>User favourited Pictures</h1>
+    <h2>User favourited Pictures</h2>
     <% @user_favourited_pictures.each do |favourited_pic| %>
       <p><%= favourited_pic.picture.title%> <%= favourited_pic.picture.street_name%></p>
     <%end%>
+  <% else %>
+    <div class="explore">
+      <h2>Explore <span>Melbourne</span></h2>
+      <%@pictures.each do |pic|%>
+        <%= image_tag "#{pic.img_url}"%>
+      <%end%>
+    </div>
+
 <%end%>
 
 <script>
