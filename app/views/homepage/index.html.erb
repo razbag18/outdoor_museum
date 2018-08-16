@@ -8,7 +8,7 @@
 
 <div class="home_search_form">
   <form id="search-picture" class="search" action="/search">
-    <input type="text" name="search" id="street" value="" title="Search" class="text">
+    <input type="text" name="search" id="street" value="" title="Search" class="text" required>
     <button type="submit" class="search-submit">
       <i class="fas fa-search"></i>
     </button>
@@ -33,9 +33,11 @@
   <% else %>
     <div class="explore">
       <h2>Explore <span>Melbourne</span></h2>
-      <%@pictures.each do |pic|%>
-        <%= image_tag "#{pic.img_url}"%>
-      <%end%>
+      <div class="explore_images">
+        <%@pictures.each do |pic|%>
+          <%= image_tag "#{pic.img_url}", size: "430x290" %>
+        <%end%>
+      </div>
     </div>
 
 <%end%>

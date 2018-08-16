@@ -98,32 +98,7 @@ h1 {
   align-self: flex-end;
 }
 
-div.explore{
-  h2{
-    font-family: Raleway;
-    font-size: 60px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #485465;
-    color: var(--slate);
-    text-align:center;
-  }
-  span{
-    font-family: Raleway;
-    font-size: 24px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 0.7px;
-    text-align: center;
-    color: #485465;
-    color: var(--slate);
-  }
-}
+
 footer {  
   color: white;
   display: flex;
