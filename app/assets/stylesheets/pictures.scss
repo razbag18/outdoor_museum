@@ -8,6 +8,13 @@ $main-color: #3b48ee;
   box-sizing: border-box;
 }
 
+.image__container {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
 div.stars {
   width: 400px;
   display: inline-block;
@@ -43,8 +50,6 @@ label.star:before {
   font-family: FontAwesome;
 }
 
-
-
 .comments-area{
   text-align: left;
 
@@ -79,6 +84,20 @@ label.star:before {
 
 .show-container{
   margin-left: 30px;
+  .icons{
+    margin: 10px 30px 0 0;
+  }
+  .title__icons{
+    display: flex;
+    justify-content: space-between;
+  }
+  .stars{
+    display: flex;
+  }
+  form {
+    margin: 0;
+  }
+  
 }
 
 .icons{
@@ -194,4 +213,16 @@ label.favourite-checkbox:before {
   content: '\002764';
   
   font-family: FontAwesome;
+}
+
+@media (min-width: 55.5em) {
+  .image__container {
+    width: 940px;
+    margin: 0 auto;
+  }
+
+  .show-container {
+    width: 940px;
+    margin: 0 auto;
+  }
 }

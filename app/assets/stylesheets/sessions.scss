@@ -65,15 +65,17 @@ label {
   }
   
   .login {
+    label {
+      display: block;
+      text-align: left;
+      margin-left: 18px;
+    }  
     padding-left: 30px;
     padding-right: 30px;
     text-align: center;
   }
   
-  label {
-    display: block;
-    text-align: left;
-  }
+  
 
 }
 
