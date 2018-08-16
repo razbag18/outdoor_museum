@@ -71,7 +71,7 @@ h1 {
 
 .hide {
   position: absolute;
-  top: -20em;
+  top: -11em;
   transition: $transition;
 }
 
@@ -79,4 +79,17 @@ h1 {
   position: absolute;
   top: 0;
   transition: $transition;
+}
+
+.panel {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  padding: 0.8em 1.3em;
+  
+}
+
+.fa-times {
+  align-self: flex-end;
 }

@@ -13,12 +13,13 @@
 
   <body>
     <section class="menu">
-      <%= image_tag "om_logo.png", :class=> 'logo' %>
+      <%= image_tag "om_logo.png", :class => 'logo' %>
       <i class="fas fa-bars fa-lg"></i>
     </section>
-    <section class="hidden-menu">
+    <section class="hidden-menu hide">
       <div class="panel">
       <% if !logged_in? %>
+        <i class="fas fa-times"></i>
         <h1><a href="/sessions/new">Login</a></h1>
         <h1><a href="/users/new">Signup</a></h1>
         <h1><a href="#">Search</a></h1>
@@ -32,25 +33,23 @@
       <% end %>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script>
-      var acc = $(".accordian");
-      var i;
-
-      for (i = 0; i < acc.length; i++){
-        acc[i].addEventListener("click", function(){
-          this.classList.toggle("active");
-
-          var panel = this.nextElementSibling;
-          if (panel.style.display === "block"){
-            panel.style.display = "none";
-          } else {
-            panel.style.display = "block";
-          }
-        });
-      }
-    </script>
-
     <%= yield %>
+
+     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  var bars = document.querySelector('.fa-bars')
+  var times = document.querySelector('.fa-times')
+  var menu = document.querySelector('.hidden-menu')
+  
+  bars.addEventListener('click', ()=>{
+    menu.className = "hidden-menu show"
+  })
+  times.addEventListener('click', ()=>{
+    menu.className = "hidden-menu hide"
+  })
+
+  
+</script>
+    
   </body>
 </html>
