@@ -30,9 +30,11 @@
     <div class="user_uploaded_pics">
       <h3>Favourited Pictures</h3>
       <div class="uploaded_images">
-      <% @user_favourited_pictures.each do |favourited_pic| %>
+      <% if @user_favourited_pictures %>
+        <% @user_favourited_pictures.each do |favourited_pic| %>
         <a href='/pictures/<%= favourited_pic.id %>'><div class="gallery_image" style="background-image: url('<%= favourited_pic.img_url %>')"></div>
-      <%end%>
+      <% end %>
+          <% end %>
       </div>
     </div>
 
