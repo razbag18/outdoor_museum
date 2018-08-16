@@ -1,7 +1,9 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+* {
+  box-sizing: border-box;
+}
 div.stars {
   width: 270px;
   display: inline-block;
@@ -35,4 +37,20 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
 label.star:before {
   content: '\f006';
   font-family: FontAwesome;
+}
+
+div.upload_new_pic{
+  width: 25%;
+}
+form {
+  line-height: 150%;
+  input { 
+    border-radius: 5px;
+    border-width: 1px; 
+    width: 100%;
+    } 
+  input#submit_new_pic{
+    width: 30%;
+    float: right;
+  }
 }
