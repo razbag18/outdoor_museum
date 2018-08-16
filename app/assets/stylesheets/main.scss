@@ -109,8 +109,12 @@ footer {
   justify-content: space-between;
 }
 
-@media (min-device-width: 32.5em) {
+@media (min-width: 32.5em) {
   
+  body {
+    margin: 0 auto;
+  }
+
   .panel-desktop {
     display: block;
     padding: 0.7em 0;
@@ -132,6 +136,24 @@ footer {
 
   .menu {
     background-color: white;
+    width: 940px;
+    margin: 0 auto;
+  }
+
+  .logout {
+    background-color: white;
+    font-family: $bold;
+    font-size: 32px;
+    color: $main-color;
+    text-align: center;
+    border: 0;
+    transition: $transition;
+  }
+  
+  .logout::hover {
+    font-size: 32px;
+    color: $sec-color;
+    text-shadow: 0 3px 6px rgba(255,68,97,0.30);
   }
 
 }

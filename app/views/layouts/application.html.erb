@@ -22,6 +22,7 @@
         <h1><a href="/users/new">Signup</a></h1>
         <h1><a href="#">Search</a></h1>
       <% end %>
+
       <% if logged_in? %>
         <form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete">
@@ -34,6 +35,7 @@
     </section>
     <section class="hidden-menu hide">
       <div class="panel">
+      <i class="fas fa-times"></i>
       <% if !logged_in? %>
         <i class="fas fa-times"></i>
         <h1><a href="/sessions/new">Login</a></h1>
@@ -69,8 +71,6 @@
   times.addEventListener('click', ()=>{
     menu.className = "hidden-menu hide"
   })
-
-  
 </script>
     
   </body>
