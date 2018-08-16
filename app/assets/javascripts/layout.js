@@ -1,1 +1,0 @@
-menu = document.querySelector('.fa-bars')
