@@ -1,8 +1,21 @@
 
-<%= form_tag "/users", method: 'post' do %>
-  <label for="">Email:</label>
-  <input type="text" name="email">
-  <label for="">Password:</label>
-  <input type="password" name="password">
-  <button>Sign Up</button>
-<% end %>
+<div class="container">
+
+  <div class="signup-form">
+    <%= form_tag "/users", method: 'post' do %>
+      <h1 class="signup-heading">Sign up to contribute, rate and save your favourite street art.</h1>
+      <p>
+        <label for="">Email:</label>
+        <input class="email"type="text" name="email">
+      </p>
+      <p>
+        <label for="">Password:</label>
+        <input class="password" type="password" name="password">
+      </p>
+        <button class="signup-button">Sign Up</button>
+    <% end %>
+  </div>
+  
+  <div class="image" style="background-image:url('<%= @picture %>')"></div>
+
+</div>

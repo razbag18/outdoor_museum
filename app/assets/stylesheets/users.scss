@@ -1,3 +1,89 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+  height: 90vh;
+}
+
+.signup-heading {
+  text-align: center;
+  color: #666666;
+  font-size: 2.5em;
+}
+
+.signup {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  text-align: left;
+}
+
+.email, .password {
+  height: 41px;
+  border-radius: 8px;
+  border: solid 1px #dce2ee;
+  width: 90%;
+}
+
+.signup-button {
+  width: 143px;
+  height: 51px;
+  border-radius: 25px;
+  background-color: #3b48ee;
+  box-shadow: 0 3px 6px 0 rgba(59, 72, 238, 0.3);
+  color: white;
+  font-size: 16px;
+}
+
+.image{
+  display: none;
+}
+
+form{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: 37.5em) {
+  .container {
+    display: flex;
+    height: 90vh;
+  }
+  
+  .signup-form{
+    height: 90vh;
+    width: 50vw;
+  }
+  
+  .image{
+    height: 90vh;
+    width: 100%;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .email, .password {
+    height: 41px;
+    border-radius: 8px;
+    border: solid 1px #dce2ee;
+  }
+  
+  .signup {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+  }
+
+}
