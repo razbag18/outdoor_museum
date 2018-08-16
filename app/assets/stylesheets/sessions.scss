@@ -42,15 +42,16 @@ label {
 @media (min-width: 37.5em) {
   .container {
     display: flex;
+    height: 90vh;
   }
   
   .login-form{
-    height: 50vh;
+    height: 90vh;
     width: 50vw;
   }
   
   .image{
-    height: 50vh;
+    height: 90vh;
     width: 100%;
     display: block;
     background-repeat: no-repeat;
