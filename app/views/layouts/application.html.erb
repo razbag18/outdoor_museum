@@ -4,30 +4,32 @@
     <title>OutdoorMuseum</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   </head>
 
   <body>
     <section class="menu">
-      <button class="accordian">Nav Menu</button>
+      <%= image_tag "om_logo.png", :class=> 'logo' %>
+      <i class="fas fa-bars fa-lg"></i>
+    </section>
+    <section class="hidden-menu">
       <div class="panel">
       <% if !logged_in? %>
-        <a href="/sessions/new">Login</a>
-        <a href="/users/new">Signup</a>
-        <a href="#">Search</a>
+        <h1><a href="/sessions/new">Login</a></h1>
+        <h1><a href="/users/new">Signup</a></h1>
+        <h1><a href="#">Search</a></h1>
       <% end %>
       <% if logged_in? %>
         <form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button>Logout</button>
+          <button class="logout">Logout</button>
         </form>
       <% end %>
-      <a href="/">Home</a>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>

@@ -1,0 +1,82 @@
+$main-color: #3b48ee;
+$sec-color: #FF4461;
+$invert-color: white;
+$bold: 'Raleway-Bold';
+$transition: all 0.8s ease;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $invert-color;
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  background-color: $main-color;
+  padding: 0.8em 1.3em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 20px;
+  width: 20px;
+}
+
+.fa-bars {
+  color: white;
+}
+
+
+.hidden-menu {
+  background-color: $main-color;
+  font-family: $bold;
+  font-size: 32px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+h1 {
+  font-family: Raleway-Bold;
+  font-size: 32px;
+}
+
+.logout {
+  background-color: $main-color;
+  font-family: $bold;
+  font-size: 32px;
+  color: #FFFFFF;
+  text-align: center;
+  border: 0;
+  transition: $transition;
+}
+
+.panel {
+  padding: 0.7em 0;
+}
+
+.logout::hover {
+  font-size: 32px;
+  color: $sec-color;
+  text-shadow: 0 3px 6px rgba(255,68,97,0.30);
+}
+
+.hide {
+  position: absolute;
+  top: -20em;
+  transition: $transition;
+}
+
+.show {
+  position: absolute;
+  top: 0;
+  transition: $transition;
+}
