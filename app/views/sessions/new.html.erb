@@ -1,14 +1,24 @@
 
-<form class ="login" action="/sessions" method="post">
-  <h1>Login</h1>
-  <p>
-    <label for="">Email</label>
-    <input type="text" name="email">
-  </p>
-  <p>
-  <label for="">Password</label>
-  <input type="password" name="password">
-  </p>
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <button>Login</button>
-</form>
+<div class="container">
+
+  <div class="login-form">
+    <form class ="login" action="/sessions" method="post">
+      <h1 class="login-heading">Login</h1>
+      <p>
+        <label for="">Email</label>
+        <input class="email" type="text" name="email">
+      </p>
+      <p>
+      <label for="">Password</label>
+      <input class="password" type="password" name="password">
+      </p>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button class="login-btn">Login</button>
+    </form>
+  </div>
+
+  <div class="image" style="background-image:url('<%= @picture %>')">
+
+  </div>
+
+</div>
