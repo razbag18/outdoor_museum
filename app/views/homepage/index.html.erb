@@ -18,19 +18,28 @@
 
 
 <% if logged_in? %>
-  <div>
-    <h2>Upload new art</h2>
-    <button onclick="location.href='/pictures/new'" type="button">Go</button>
-  </div>
-    <h2>User uploaded Pictures</h2>
-      <% @user_uploaded_pictures.each do |uploaded_pic| %>
-      <p><%= uploaded_pic.title%> <%= uploaded_pic.street_name%></p>
-    <%end%>
+  <div class="user_dashboard">
+    <div class="user_uploaded_pics">
+      <h3>Uploaded Pictures</h3>
+      <div class="uploaded_images">
+        <% @user_uploaded_pictures.each do |uploaded_pic| %>
+          <a href='/pictures/<%= uploaded_pic.id %>'><div class="gallery_image" style="background-image: url('<%= uploaded_pic.img_url %>')"></div>
+        <%end%>
+      </div>
+    
+    <div class="user_uploaded_pics">
+      <h3>Favourited Pictures</h3>
+      <div class="uploaded_images">
+      <% @user_favourited_pictures.each do |favourited_pic| %>
+        <a href='/pictures/<%= favourited_pic.id %>'><div class="gallery_image" style="background-image: url('<%= favourited_pic.img_url %>')"></div>
+      <%end%>
+      </div>
+    </div>
 
-    <h2>User favourited Pictures</h2>
-    <% @user_favourited_pictures.each do |favourited_pic| %>
-      <p><%= favourited_pic.picture.title%> <%= favourited_pic.picture.street_name%></p>
-    <%end%>
+    <div class="upload_new">
+      <button class="btn_upload" onclick="location.href='/pictures/new'" type="button">Upload More</button>
+    </div>
+  </div>
   <% else %>
     <div class="explore">
       <h2>Explore <span>Melbourne</span></h2>
@@ -45,7 +54,7 @@
 
 <div class="end">
   
-  <h3>Start Exploring now!</h3>
+  <h2>Start Exploring now!</h2>
 </div>
 
 
