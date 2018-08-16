@@ -8,12 +8,11 @@
   </div>
   <% if !logged_in? %>
   <div>
-    <h2>Login</h2>
+    <h2>Already have an account?</h2>
     <button onclick="location.href='/sessions/new'" type="button">Login</button>
   </div>
   <div>
-    <h2>Be cool too</h2>
-    <button onclick="location.href='/users/new'" type="button">Sign up</button>
+    <h2>Or click here to <a href="/users/new">sign up</a></h2>
   </div>
   <% else %>
    <div>
