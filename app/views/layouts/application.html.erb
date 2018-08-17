@@ -22,7 +22,6 @@
       <% if !logged_in? %>
         <h1><a href="/sessions/new">Login</a></h1>
         <h1><a href="/users/new">Signup</a></h1>
-        <h1><a href="#">Search</a></h1>
       <% end %>
 
       <% if logged_in? %>
@@ -36,13 +35,14 @@
       <div class="icon"><i onclick="showMenu()" class="fas fa-bars fa-lg"></i></div>
     </section>
     <section class="hidden-menu hide">
+
       <div class="panel">
       <i onclick="hideMenu()" class="fas fa-times"></i>
       <% if !logged_in? %>
         <h1><a href="/sessions/new">Login</a></h1>
         <h1><a href="/users/new">Signup</a></h1>
-        <h1><a href="#">Search</a></h1>
       <% end %>
+      </div>
       <% if logged_in? %>
         <form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete">
@@ -50,6 +50,7 @@
           <button class="logout">Logout</button>
         </form>
       <% end %>
+
       </div>
     </section>
 
@@ -62,5 +63,6 @@
 
     
     <%= javascript_include_tag "layout.js" %>
+
   </body>
 </html>
