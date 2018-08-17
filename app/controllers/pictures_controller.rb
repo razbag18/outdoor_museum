@@ -1,6 +1,9 @@
 class PicturesController < ApplicationController
 
   def new
+    if !logged_in?
+      redirect_to '/'
+    end
     @picture = Picture.new
     @picture_image = Picture.all.pluck('img_url').sample
     @google_address_auto = google_auto_complete
