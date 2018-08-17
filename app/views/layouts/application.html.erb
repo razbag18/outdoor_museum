@@ -33,11 +33,11 @@
         </form>
       <% end %>
       </div>
-      <div class="icon"><i class="fas fa-bars fa-lg"></i></div>
+      <div class="icon"><i onclick="showMenu()" class="fas fa-bars fa-lg"></i></div>
     </section>
     <section class="hidden-menu hide">
       <div class="panel">
-      <i class="fas fa-times"></i>
+      <i onclick="hideMenu()" class="fas fa-times"></i>
       <% if !logged_in? %>
         <h1><a href="/sessions/new">Login</a></h1>
         <h1><a href="/users/new">Signup</a></h1>
