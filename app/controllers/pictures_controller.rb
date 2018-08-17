@@ -25,7 +25,7 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find(params[:id])
     pic_votes = @picture.users_pictures
-    total_points = pic_votes.pluck('rating').reduce(:+)
+    total_points = pic_votes.pluck('rating').compact.reduce(:+)
     if total_points 
       @ratings = total_points/pic_votes.length
     else
