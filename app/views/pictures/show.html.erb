@@ -111,7 +111,7 @@
         picture_id: <%= @picture.id %>
       },
       function(data) {
-        $('#favourite-checkbox').prop('checked', data.checked)
+        $('.favourite-checkbox').prop('checked', data.checked)
       }
     )
   })
