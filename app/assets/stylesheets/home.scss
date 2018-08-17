@@ -177,6 +177,13 @@ div.upload_new{
   }
 }
 
+.floats {
+  display: none;
+}
+
+.floats-2 {
+  display: none;
+}
 
 @media (min-width: 55.5em) {
   .home_title {
@@ -201,17 +208,19 @@ div.upload_new{
     height: auto;
   }
   .floats {
-  position: absolute;
-  top: 30%;
-  left: 0%;
-  height: 40%;
-}
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    height: 40%;
+  }
   
   .floats-2 {
-  position: absolute;
-  top: 30%;
-  right: 0%;
-  height: 40%;
-}
+    display: block;
+    position: absolute;
+    top: 30%;
+    right: 0%;
+    height: 40%;
+  }
 
 }

@@ -74,12 +74,10 @@
   window.addEventListener('scroll', ()=> {
     if (window.scrollY < position) {
       document.querySelector('.floats').style = 'transform: translateY('+ position/100 +'em)'
-      document.querySelector('.floats-2').style = 'transform: translateY(' + position/60 + 'em)'
-      positioner++
+      document.querySelector('.floats-2').style = 'transform: translateY(-' + position/60 + 'em)'
     } else {
       document.querySelector('.floats').style = 'transform: translateY('+ position/100 +'em)'
-      document.querySelector('.floats-2').style = 'transform: translateY(' + position/60 + 'em)'
-      positioner = positioner - 1
+      document.querySelector('.floats-2').style = 'transform: translateY(-' + position/60 + 'em)'
     }
     position = window.scrollY
   })
